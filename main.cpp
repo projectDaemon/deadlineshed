@@ -72,6 +72,8 @@
 #include <ctime>
 #include <iomanip>
 #include <vector>
+
+#define _DEBUG
  
  void *run_deadline(void *data)
  {
@@ -102,14 +104,11 @@
 	}
 	
 	auto lambda = [&x]() {
-		//std::vector<int> vec;
-		//for (auto i = 0; i < 6799959; ++i)
-		//	vec.push_back(i);
 		x++;
+#ifdef _DEBUG
 		std::cout << x << std::endl;
+#endif
 	};
-	
-#define _DEBUG
 	
 	while (!done) {
 #ifdef _DEBUG
